@@ -19,9 +19,6 @@ concedeButtonPos = pyautogui.Point(x=eval(config["DEFAULT"]["concedeButtonPos"])
 concedeButtonRGB = eval(config["DEFAULT"]["concedeButtonRGB"])
 inMatchSettingsButtonPixelPos = pyautogui.Point(x=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos"])[0], y=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos"])[1])
 inMatchSettingsButtonPixelRGB = eval(config["DEFAULT"]["inMatchSettingsButtonPixelRGB"])
-print(inMatchSettingsButtonPixelRGB)
-
-
 
 #positions and colors
 """
@@ -39,9 +36,11 @@ inMatchSettingsButtonPixelRGB = (204, 204, 204)
 class quickgrab:
     def __init__(self):
         self.isRunning = False
+        self.timeBeforeConcede = 0
 
     def startTheScript(self):
         self.isRunning = True
+        print(self.timeBeforeConcede)
         count = 0
         while self.isRunning:
             print(datetime.datetime.now())
