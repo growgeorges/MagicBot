@@ -1,6 +1,7 @@
 from tkinter import *
-import quickgrab
 import threading
+import quickgrab
+import keyboardlistener
 
 class Application(Frame):
 
@@ -14,6 +15,10 @@ class Application(Frame):
         self.quicky = qb
         self.quicky.isRunning = False
         self.thread = threading.Thread(target=self.quicky.startTheScript)
+        self.thread.daemon=True
+        self.threadkeyboard = threading.Thread(target=keyboardlistener.startTheListener)
+        self.threadkeyboard.daemon=True
+        self.threadkeyboard.start()
 
         self.isThreadStarted = False
 
