@@ -15,6 +15,8 @@ class Application(Frame):
         self.quicky.isRunning = False
         self.thread = threading.Thread(target=self.quicky.startTheScript)
 
+        self.isThreadStarted = False
+
     def create_widgets(self):
         #create the 3 buttons
         self.button_start = Button(self, text = "Lancer le Script", command=self.start)
@@ -40,10 +42,13 @@ class Application(Frame):
 
     def start(self):
         self.quicky.timeBeforeConcede = self.scale_time.get()
-        try:
-            self.thread.start()
-        except Exception as e:
-            print("erreur : " + str(e))
+        if not self.isThreadStarted:
+            try:
+                self.thread.start()
+                self.isThreadStarted = True
+            except Exception as e:
+                print("erreur : " + str(e))
+        self.quicky.isRunning=True
 
     def stop(self):
         self.quicky.isRunning = False

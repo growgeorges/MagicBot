@@ -38,20 +38,27 @@ class quickgrab:
         self.isRunning = False
         self.timeBeforeConcede = 0
 
+
     def startTheScript(self):
-        self.isRunning = True
-        print(self.timeBeforeConcede)
         count = 0
-        while self.isRunning:
+        while True:
             print(datetime.datetime.now())
             time.sleep(0.5)
             count += 1
+
+            if not self.isRunning:
+                print("pause")
+                while not self.isRunning:
+                    one = 1
+
+
+
             if(areWeInMainScreen()):
                 goToPixAndClick(playButtonPixelPos)
                 #print("We are in MainScreen")
 
             if(areWeInBetweenMatchScreen()):
-                time.sleep(5)
+                time.sleep(self.timeBeforeConcede)
                 goToPixAndClick(inBetweenSettingsButtonPixelPos)
                 #print("We are in Between Matches")
 
@@ -60,7 +67,7 @@ class quickgrab:
                 #print("We are in Concede Menu")
 
             if (areWeInMatchScreen()):
-                time.sleep(5)
+                time.sleep(self.timeBeforeConcede)
                 goToPixAndClick(inBetweenSettingsButtonPixelPos)
                 #print("We are in Match Screen")
 
@@ -123,7 +130,3 @@ def areWeInMatchScreen():
         return True
     else:
         return False
-
-
-
-
