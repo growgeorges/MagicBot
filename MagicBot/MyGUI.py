@@ -45,6 +45,10 @@ class Application(Frame):
         self.scale_time = Scale(self, from_=0, to=20, orient=HORIZONTAL)
         self.scale_time.grid()
 
+        self.status = Label(self, text="Idle", bd=1, relief=SUNKEN, anchor=W)
+        #self.status.pack(side=BOTTOM, fill=X)
+        self.status.grid()
+
     def start(self):
         self.quicky.timeBeforeConcede = self.scale_time.get()
         if not self.isThreadStarted:
