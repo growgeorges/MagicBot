@@ -19,8 +19,10 @@ inBetweenSettingsButtonPixelPos2 = pyautogui.Point(x=eval(config["DEFAULT"]["inB
 inBetweenSettingsButtonPixelRGB2 = eval(config["DEFAULT"]["inBetweenSettingsButtonPixelRGB2"])
 concedeButtonPos = pyautogui.Point(x=eval(config["DEFAULT"]["concedeButtonPos"])[0], y=eval(config["DEFAULT"]["concedeButtonPos"])[1])
 concedeButtonRGB = eval(config["DEFAULT"]["concedeButtonRGB"])
-inMatchSettingsButtonPixelPos = pyautogui.Point(x=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos"])[0], y=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos"])[1])
-inMatchSettingsButtonPixelRGB = eval(config["DEFAULT"]["inMatchSettingsButtonPixelRGB"])
+inMatchSettingsButtonPixelPos1 = pyautogui.Point(x=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos1"])[0], y=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos1"])[1])
+inMatchSettingsButtonPixelRGB1 = eval(config["DEFAULT"]["inMatchSettingsButtonPixelRGB1"])
+inMatchSettingsButtonPixelPos2 = pyautogui.Point(x=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos2"])[0], y=eval(config["DEFAULT"]["inMatchSettingsButtonPixelPos2"])[1])
+inMatchSettingsButtonPixelRGB2 = eval(config["DEFAULT"]["inMatchSettingsButtonPixelRGB2"])
 
 class quickgrab:
     def __init__(self):
@@ -107,9 +109,8 @@ def areWeInMainScreen():
         return False
 
 def areWeInBetweenMatchScreen():
-    #if pyautogui.pixelMatchesColor(inBetweenSettingsButtonPixelPos1.x, inBetweenSettingsButtonPixelPos1.y, inBetweenSettingsButtonPixelRGB1)\
-     #       or pyautogui.pixelMatchesColor(inBetweenSettingsButtonPixelPos2.x, inBetweenSettingsButtonPixelPos2.y, inBetweenSettingsButtonPixelRGB2):
-    if pyautogui.pixelMatchesColor(inBetweenSettingsButtonPixelPos2.x, inBetweenSettingsButtonPixelPos2.y, inBetweenSettingsButtonPixelRGB2):
+    if pyautogui.pixelMatchesColor(inBetweenSettingsButtonPixelPos1.x, inBetweenSettingsButtonPixelPos1.y, inBetweenSettingsButtonPixelRGB1)\
+            or pyautogui.pixelMatchesColor(inBetweenSettingsButtonPixelPos2.x, inBetweenSettingsButtonPixelPos2.y, inBetweenSettingsButtonPixelRGB2):
             return True
     else:
         return False
@@ -121,7 +122,8 @@ def areWeInConcedeMenu():
         return False
 
 def areWeInMatchScreen():
-    if pyautogui.pixelMatchesColor(inMatchSettingsButtonPixelPos.x, inMatchSettingsButtonPixelPos.y, inMatchSettingsButtonPixelRGB):
+    if pyautogui.pixelMatchesColor(inMatchSettingsButtonPixelPos1.x, inMatchSettingsButtonPixelPos1.y, inMatchSettingsButtonPixelRGB1)\
+            or pyautogui.pixelMatchesColor(inMatchSettingsButtonPixelPos2.x, inMatchSettingsButtonPixelPos2.y, inMatchSettingsButtonPixelRGB2):
         return True
     else:
         return False
