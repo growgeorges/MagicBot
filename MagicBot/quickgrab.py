@@ -3,8 +3,10 @@ import pyscreeze
 import time
 import configparser
 import datetime
+import PyWinMouse
 
 pyautogui.PAUSE = 0.2
+pyautogui.FAILSAFE = False
 
 #on set up la config
 config = configparser.ConfigParser()
@@ -79,9 +81,9 @@ class quickgrab:
 
 
 def click():
-    pyautogui.mouseDown()
-    time.sleep(0.2)
-    pyautogui.mouseUp()
+    mouse = PyWinMouse.Mouse()
+    mouse.left_click()
+
 
 def goToImgAndClick(path):
     try:
